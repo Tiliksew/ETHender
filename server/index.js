@@ -2,6 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
+import route from "./routes/posts.js";
 const app=express()
 app.use(bodyParser.json({limit:"30mb",extended:"true"}))
 app.use(bodyParser.urlencoded({limit:"30mb",extended:"true"}))
@@ -12,3 +13,4 @@ mongoose.connect(CONNECTIONI_URL,{useNewUrlParser: true, useUnifiedTopology: tru
 .then(()=>app.listen(port,()=>console.log(`listening successfully at port ${port}`)))
 .catch((error)=>console.log(error.message))
 // mongoose.set('useFindAndModify',false)c
+app.use('/tenders',route)
