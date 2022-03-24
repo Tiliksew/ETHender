@@ -27,7 +27,7 @@ function ChildModal() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Button onClick={handleOpen}>Open Child Modal</Button>
       <Modal
         hideBackdrop
@@ -44,7 +44,7 @@ function ChildModal() {
           <Button onClick={handleClose}>Close Child Modal</Button>
         </Box>
       </Modal>
-    </React.Fragment>
+    </>
   );
 }
 
