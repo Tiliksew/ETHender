@@ -1,8 +1,7 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionType';
-
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionType'
 import * as api from '../api/index.js';
 
-export const getPosts = () => async (dispatch) => {
+const getPosts= () => async (dispatch) => {
   try {
     const { data } = await api.fetchPosts();
 
@@ -11,7 +10,8 @@ export const getPosts = () => async (dispatch) => {
     console.log(error.message);
   }
 };
-
+export default  getPosts
+/*
 export const createPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
@@ -50,4 +50,6 @@ export const deletePost = (id) => async (dispatch) => {
   } catch (error) {
     console.log(error.message);
   }
-};
+};*/
+
+
