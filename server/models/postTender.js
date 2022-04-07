@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { officerSchema } from "./user";
+import { officerSchema } from "./user.js";
 const postSchema = mongoose.Schema({
     title:String,
     description:String,

@@ -1,5 +1,11 @@
 import mongoose from 'mongoose'
-const userSchema=mongoose.model('User',mongoose.Schema({
+const addressSchema=mongoose.Schema({
+    city:String,
+    subcity:String,
+    wereda:String,
+    kebele:String,
+})
+const userSchema=mongoose.Schema({
     firstName:String,
     middleNam:String,
     lastName:String,
@@ -12,25 +18,25 @@ const userSchema=mongoose.model('User',mongoose.Schema({
     address:addressSchema,
     sex:String,
 
-})) 
-const addressSchema=mongoose.model('Address',mongoose.Schema({
-    city,String,
-    subcity,String,
-    wereda,String,
-    kebele:String,
-})) 
-const officerSchema=mongoose.model('Officer',mongoose.Schema({
+})
+const officerSchema=mongoose.Schema({
     personalInfo:userSchema,
     officerId:String,
-
-})) 
-const supplierSchema=mongoose.model('Supplier',mongoose.Schema({
+    
+})
+const supplierSchema=mongoose.Schema({
     personalInfo:userSchema,
     bussinesType:String,
     tinNumber:String,
-})) 
-const systemAdminSchema=mongoose.model('SystemAdmin',mongoose.Schema({
+})
+const systemAdminSchema=mongoose.Schema({
     personalInfo:userSchema,
     adminId:String,
-})) 
-export {userSchema,addressSchema,officerSchema,supplierSchema,supplierSchema}
+})
+const names=['address','user','officer','systemAdmin','supplier']
+const address=mongoose.model('Address',addressSchema)
+const user=mongoose.model('Users',userSchema)
+const officer=mongoose.model('Officer',officerSchema)
+const systemAdmin=mongoose.model('SystemAdmin',systemAdminSchema)
+const supplier=mongoose.model('Supplier',supplierSchema)
+export {user,address,officer,supplier,systemAdmin,officerSchema}
