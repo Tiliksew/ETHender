@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { officerSchema } from "./user";
 const postSchema = mongoose.Schema({
     title:String,
     description:String,
@@ -6,7 +7,7 @@ const postSchema = mongoose.Schema({
     type:String,
     catagory:String,
     lotNo:String,
-    creator:String,
+    creator:officerSchema,
     publishedDate:{
 type:Date,
 default:new Date()
