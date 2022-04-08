@@ -4,3 +4,5 @@ accountSchema=mongoose.Schema({
     password:String,
     recoveryCode:String
 })
+const account=mongoose.model('Account',accountSchema)
+export {account}
