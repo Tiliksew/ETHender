@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import {user,address,supplier} from '../models/user.js'
 import { account } from "../models/account.js";
+import passport from "passport ";
 // import { account } from "../models/account.js";
 import jwt from 'jsonwebtoken'
 const registerSupplier=async (req,res)=>{
@@ -139,4 +140,6 @@ export {
      loginOfficer,
      displayDashboard,
      userLogin
+
+     
     }
