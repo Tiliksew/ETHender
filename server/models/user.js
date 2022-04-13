@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { accountSchema } from "./account.js";
 const addressSchema=mongoose.Schema({
     city:String,
     subcity:String,
@@ -17,6 +18,8 @@ const userSchema=mongoose.Schema({
     },
     address:addressSchema,
     sex:String,
+    
+    
 
 })
 const officerSchema=mongoose.Schema({
@@ -26,6 +29,7 @@ const officerSchema=mongoose.Schema({
 })
 const supplierSchema=mongoose.Schema({
     personalInfo:userSchema,
+    accountInfo:accountSchema,
     bussinesType:String,
     tinNumber:String,
 })

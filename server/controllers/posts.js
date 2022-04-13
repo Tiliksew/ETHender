@@ -1,8 +1,8 @@
-import PostTender from "../models/postTender.js";
+import tender from "../models/tender.js";
 import mongoose from 'mongoose'
 const getPosts=async (req,res)=>{
    try {
-       const postTenders=await PostTender.find()
+       const postTenders=await tender.find()
        console.log(postTenders)
        res.status(200).json(postTenders)
    } catch (error) {
@@ -13,7 +13,7 @@ const getPosts=async (req,res)=>{
 
 const createPost =async (req,res)=>{
     const body=req.body
-    const newPost=new PostTender(body)
+    const newPost=new tender(body)
     try {
             await newPost.save()
             res.status(201).json(newPost)
@@ -27,7 +27,7 @@ const createPost =async (req,res)=>{
     const { id } = req.params;
 
     try {
-        const post = await PostTender.findById(id);
+        const post = await tender.findById(id);
         
         res.status(200).json(post);
     } catch (error) {
@@ -38,8 +38,8 @@ const createPost =async (req,res)=>{
  const createPost = async (req, res) => {
     const { title,description,number,type,catagory,lotNo,creator,publishedDate,closingDateate,bidOpenOnate,participationFee,bidSecurityAmount,termsAndConditions, } = req.body;
 
-    // const newPostTender = new PostTender({ title,description,number,type,catagory,lotNo,creator,publishedDate,closingDateate,bidOpenOnate,participationFee,bidSecurityAmount,termsAndConditions, })
-    const newPostTender = new PostTender({ title,description,number,type,catagory,lotNo,creator,publishedDate,closingDateate,bidOpenOnate,participationFee,bidSecurityAmount,termsAndConditions, })
+    // const newPostTender = new tender({ title,description,number,type,catagory,lotNo,creator,publishedDate,closingDateate,bidOpenOnate,participationFee,bidSecurityAmount,termsAndConditions, })
+    const newPostTender = new tender({ title,description,number,type,catagory,lotNo,creator,publishedDate,closingDateate,bidOpenOnate,participationFee,bidSecurityAmount,termsAndConditions, })
 
     try {
         await newPostTender.save();
@@ -58,7 +58,7 @@ const createPost =async (req,res)=>{
 
     const updatedPost = { title,description,number,type,catagory,lotNo,creator,publishedDate,closingDateate,bidOpenOnate,participationFee,bidSecurityAmount,termsAndConditions };
 
-    await PostTender.findByIdAndUpdate(id, updatedPost, { new: true });
+    await tender.findByIdAndUpdate(id, updatedPost, { new: true });
 
     res.json(updatedPost);
 }
@@ -68,7 +68,7 @@ const createPost =async (req,res)=>{
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    await PostTender.findByIdAndRemove(id);
+    await tender.findByIdAndRemove(id);
 
     res.json({ message: "Tender Post deleted successfully." });
 }

@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
-accountSchema=mongoose.Schema({
+const accountSchema=mongoose.Schema({
     username:String,
     password:String,
-    recoveryCode:String
+    email:String,
+    role:String
+    // recoveryCode:String
 })
 const account=mongoose.model('Account',accountSchema)
-export {account}
+export {accountSchema ,account}
