@@ -82,7 +82,6 @@ const loginSupplier=(req,res)=>{
     
 }
 const displayDashboard=(req,res)=>{
-//    console.log( validateEmail(req.body.email))
     res.status(200).json({user:req.user})
 
 }
@@ -91,7 +90,6 @@ const displayAll= async(req,res)=>{
    res.status(200).json({user:users})
 }
 
-//////////////////////////////////////////////
 const validateUsername=async username=>{
 const userName=await account.findOne({username})
 console.log(userName)
@@ -102,7 +100,6 @@ const validateEmail=async email=>{
     console.log(Email)
     return Email?false:true
     }
-// const roles=['admin','supplier','officer']
 const checkRole=roles=>(req,res,next)=>{
 if(roles.includes(req.user.role))
 next()
