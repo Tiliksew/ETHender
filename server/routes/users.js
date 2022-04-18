@@ -1,5 +1,6 @@
 import express  from "express";
-import {registerOfficer,registerSupplier,loginAdmin,loginSupplier,loginOfficer,displayDashboard, userLogin} from '../controllers/users.js'
+import passport from "passport";
+import {displayAll,registerOfficer,checkRole,registerSupplier,loginAdmin,loginSupplier,loginOfficer,displayDashboard, userLogin, userAuth} from '../controllers/users.js'
 const router =express.Router()
 
 /** *
@@ -15,13 +16,26 @@ router.post('/officer-registration',registerOfficer)
 router.post('/user-login',async(req,res)=>{
 await userLogin(req.body,'supplier',res)
 })
-router.post('/admin-login',loginAdmin)
-router.post('/officer-login',loginOfficer)
+router.post('/admin-login',async(req,res)=>{
+await userLogin(req.body,'admin',res)
+})
+router.post('/officer-login',async(req,res)=>{
+await userLogin(req.body,'officer',res)
+})
 router.post('/supplier-login',loginSupplier)
 
 /** *
    * @DESC registration routes for different 
 */
 
-router.get('/dashboard',displayDashboard)
+router.get('/admin-dashboard', passport.authenticate("jwt-bearer", { session: false })
+,checkRole(['admin']),displayDashboard)
+
+router.get('/officer-dashboard', passport.authenticate("jwt-bearer", { session: false })
+,checkRole(['officer']),displayDashboard)
+
+router.get('/supplier-dashboard', passport.authenticate("jwt-bearer", { session: false })
+,checkRole(['supplier']),displayDashboard)
+
+router.get('/all',displayAll)
 export default router

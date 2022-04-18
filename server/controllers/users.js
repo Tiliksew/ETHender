@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import {user,address,supplier} from '../models/user.js'
 import { account } from "../models/account.js";
-import passport from "passport ";
+import passport from "passport";
+// import { SECRET } from "../config/index.js";
 // import { account } from "../models/account.js";
 import jwt from 'jsonwebtoken'
 const registerSupplier=async (req,res)=>{
@@ -81,9 +82,13 @@ const loginSupplier=(req,res)=>{
     
 }
 const displayDashboard=(req,res)=>{
-   console.log( validateEmail(req.body.email))
-    res.status(200).json({message:'dashboard'})
+//    console.log( validateEmail(req.body.email))
+    res.status(200).json({user:req.user})
 
+}
+const displayAll= async(req,res)=>{
+   const users=await account.find()
+   res.status(200).json({user:users})
 }
 
 //////////////////////////////////////////////
@@ -97,6 +102,12 @@ const validateEmail=async email=>{
     console.log(Email)
     return Email?false:true
     }
+// const roles=['admin','supplier','officer']
+const checkRole=roles=>(req,res,next)=>{
+if(roles.includes(req.user.role))
+next()
+res.status(401).json({messages:"not your role"})
+}
 const userLogin=async (userCreds,role,res)=>{
 let {username,password}=userCreds
 const user=await account.findOne({username})
@@ -116,13 +127,13 @@ let token=jwt.sign({
     role:user.role,
     username:user.username,
     email:user.email
-},'SECRET_CODE',{expiresIn:"7 days"})
+},'SECRET',{expiresIn:"7 days"})
 let result={
     username:user.username,
     role:user.role,
     email:user.email,
-    token:`Baerer ${token}`,
-    expiresIn:168
+    token:`Bearer ${token}`,
+    exp:168
 }
 return res.status(200).json({...result,succes:false})
 
@@ -132,14 +143,22 @@ else{
 }
 
 }
+
+const userAuth = ()=>{
+
+    return passport.authenticate("jwt-bearer", { session: false })
+}
 export {
+    checkRole,
+     userAuth,
      registerOfficer,
      registerSupplier,
      loginAdmin,
      loginSupplier,
      loginOfficer,
      displayDashboard,
-     userLogin
+     userLogin,
+     displayAll
 
      
     }
