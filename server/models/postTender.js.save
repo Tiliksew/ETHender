@@ -1,5 +1,0 @@
-import mongoose from "mongoose";
-const postSchema = mongoose.Schema({
-    title,description,number,type,catagory,lotNo,creator,publishedDate,closingDateate,bidOpenOnate,participationFee,bidSecurityAmount,termsAndConditions,
-})
-export default mongoose.model('postTender',postSchema)
