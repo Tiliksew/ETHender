@@ -13,7 +13,7 @@ router.post('/officer-registration',registerOfficer)
 /** *
    * @DESC login routes for different 
 */
-router.post('/user-login',async(req,res)=>{
+router.post('/supplier-login',async(req,res)=>{
 await userLogin(req.body,'supplier',res)
 })
 router.post('/admin-login',async(req,res)=>{
@@ -22,7 +22,7 @@ await userLogin(req.body,'admin',res)
 router.post('/officer-login',async(req,res)=>{
 await userLogin(req.body,'officer',res)
 })
-router.post('/supplier-login',loginSupplier)
+// router.post('/supplier-login',loginSupplier)
 
 /** *
    * @DESC registration routes for different 

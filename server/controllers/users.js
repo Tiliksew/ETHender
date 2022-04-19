@@ -3,21 +3,20 @@ import bcrypt from "bcryptjs";
 import {user,address,supplier} from '../models/user.js'
 import { account } from "../models/account.js";
 import passport from "passport";
-// import { SECRET } from "../config/index.js";
-// import { account } from "../models/account.js";
 import jwt from 'jsonwebtoken'
+
 const registerSupplier=async (req,res)=>{
     const userBody=req.body
     const usernameNotTaken=await validateUsername(userBody.accountInfo.username)
-    if(!usernameNotTaken)
-    {
-        return res.status(401).json({message:"Username is taken"})
-    }
+        if(!usernameNotTaken)
+        {
+            return res.status(401).json({message:"Username is taken"})
+        }
 
-   const emailNotTaken=await validateEmail(userBody.accountInfo.email)
-   if (!emailNotTaken){
-       return res.status(401).json({message:"Email is taken"})
-    }
+     const emailNotTaken=await validateEmail(userBody.accountInfo.email)
+        if (!emailNotTaken){
+            return res.status(401).json({message:"Email is taken"})
+            }
     
    const password=await bcrypt.hash(userBody.accountInfo.password,12)
    const newUser= new supplier({
@@ -40,11 +39,9 @@ const registerSupplier=async (req,res)=>{
    return res.status(201).json({message:"Account Created"})
 }
 
+// Officer Registration
 const registerOfficer=async(req,res)=>{
-    // const account=new account({
-    //     userName:"Tiliksew",
-    //     password:"tiliksew123"
-    // })
+    
     const userAddress=new address({
         city:"Finote Selam",
         subcity:"Kuchra",
@@ -72,18 +69,25 @@ const registerOfficer=async(req,res)=>{
     success: true
   });
 }
+
+
+//Admin Login
 const loginAdmin=(req,res)=>{
     
 }
+
+// Officer Login
 const loginOfficer=(req,res)=>{
     
 }
+
+
+//Supplier Login
 const loginSupplier=(req,res)=>{
     
 }
 const displayDashboard=(req,res)=>{
     res.status(200).json({user:req.user})
-
 }
 const displayAll= async(req,res)=>{
    const users=await account.find()
@@ -156,6 +160,4 @@ export {
      displayDashboard,
      userLogin,
      displayAll
-
-     
     }
