@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import NavBar from './NavBar';
+import TabGroup from './Tab';
 
 const MainContent=()=>{
 return (
     <Container>
         <NavBar/>
+        <TabGroup/>
         <SubContainer>
             <SectionOne>
                 <ColumnOne1></ColumnOne1>
@@ -27,7 +29,7 @@ width: 80%;
 background-color:linear-gradient(to bottom right,white 0% right,#e6e4ff 70% ) ;
 border-bottom-right-radius:2rem;
 border-top-right-radius:2rem;
-margin:1rem 8rem 1rem 4rem;
+margin:1rem 2rem 1rem 1.5rem;
 @media screen and (min-width: 320px) and (max-width: 1080px) {
     display: flex;
     flex-direction: column;

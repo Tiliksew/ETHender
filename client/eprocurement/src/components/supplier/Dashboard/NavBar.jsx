@@ -5,8 +5,8 @@ const NavBar=()=>{
 return (
 <NavBarContainer>
     <Text>
-        Good Morning
-        <span> ETHIOPOA</span>
+       ETHender
+        <span> ETHIOPIA</span>
     </Text>
     <InputContainer>
         <Icon>

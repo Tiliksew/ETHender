@@ -106,11 +106,11 @@ svg{
 }
 `;
 const ContactContainer=styled.div`
-width: 60%;
+width: 80%;
 background-color:#091322 ;
 color: #c4c4c4;
-height: 15%;
-margin: auto auto;
+height: 10%;
+margin: 2rem auto;
 border-radius:1rem;
 display: flex;
 flex-direction:column ;
@@ -121,7 +121,7 @@ a{
 }
 @media screen and (min-width: 320px) and (max-width: 1080px) {
     margin-bottom: 2rem;
-    margin-top: 2rem;
+    
 
   }
 `;
