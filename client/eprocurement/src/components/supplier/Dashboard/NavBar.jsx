@@ -19,6 +19,7 @@ export default function Navbar() {
 }
 const Nav = styled.nav`
   display: flex;
+  height: 3rem;
   justify-content: space-between;
   color: white;
   .title {

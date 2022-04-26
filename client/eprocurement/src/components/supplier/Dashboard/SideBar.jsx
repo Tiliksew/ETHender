@@ -10,6 +10,7 @@ import { FiLogOut } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
 import scrollreveal from "scrollreveal";
+import { IoNavigateCircle } from 'react-icons/io5';
 export default function Sidebar() {
   const [currentLink, setCurrentLink] = useState(1);
   const [navbarState, setNavbarState] = useState(false);
@@ -47,8 +48,8 @@ export default function Sidebar() {
       <Section>
         <div className="top">
           <div className="brand">
-            <FaTaxi />
-            <span>MY TAXI</span>
+            <IoNavigateCircle />
+            <span>ETH-ender</span>
           </div>
           <div className="toggle">
             {navbarState ? (
@@ -79,7 +80,7 @@ export default function Sidebar() {
               >
                 <a href="#">
                   <RiDashboard2Fill />
-                  <span> Riders</span>
+                  <span> Tenders</span>
                 </a>
               </li>
               <li
@@ -88,7 +89,7 @@ export default function Sidebar() {
               >
                 <a href="#">
                   <FaAddressCard />
-                  <span> Payment Details</span>
+                  <span> Suppliers</span>
                 </a>
               </li>
               <li
@@ -97,7 +98,7 @@ export default function Sidebar() {
               >
                 <a href="#">
                   <GiTwirlCenter />
-                  <span> Learning Center</span>
+                  <span> Officers</span>
                 </a>
               </li>
               <li
@@ -146,7 +147,7 @@ export default function Sidebar() {
             >
               <a href="#">
                 <RiDashboard2Fill />
-                <span> Riders</span>
+                <span> Tenders</span>
               </a>
             </li>
             <li
@@ -155,7 +156,7 @@ export default function Sidebar() {
             >
               <a href="#">
                 <FaAddressCard />
-                <span> Payment Details</span>
+                <span> Suppliers</span>
               </a>
             </li>
             <li
@@ -164,7 +165,7 @@ export default function Sidebar() {
             >
               <a href="#">
                 <GiTwirlCenter />
-                <span> Learning Center</span>
+                <span> Officers</span>
               </a>
             </li>
             <li
