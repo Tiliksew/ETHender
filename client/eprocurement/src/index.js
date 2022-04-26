@@ -6,7 +6,7 @@ import Sidebar from './components/supplier/Dashboard/Sider';
  
 ReactDom.render(
     <>
-    <Sidebar/>
+    <App/>
     </>,
 document.getElementById('root')
 ) 

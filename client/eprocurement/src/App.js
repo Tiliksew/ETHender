@@ -1,52 +1,6 @@
-// import * as React from 'react';
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-// import IconButton from '@mui/material/IconButton';
-// import Typography from '@mui/material/Typography';
-// import Menu from '@mui/material/Menu';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import Container from '@mui/material/Container';
-// import Avatar from '@mui/material/Avatar';
-// import Button from '@mui/material/Button';
-// import Tooltip from '@mui/material/Tooltip';
-// import MenuItem from '@mui/material/MenuItem';
-// // import SideMenu from '@mui/material/SideMenu'
-// // import {Paper,FormControl,FormGroup,CardContent,CardMedia,CardActions } from '@mui/material'
-// import TenderForm from './components/TenderPost';
-// const pages = ['Products', 'Pricing', 'Blog'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-// const ResponsiveAppBar = () => {
-//   const [anchorElNav, setAnchorElNav] = React.useState(null);
-//   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-//   const handleOpenNavMenu = (event) => {
-//     setAnchorElNav(event.currentTarget);
-//   };
-//   const handleOpenUserMenu = (event) => {
-//     setAnchorElUser(event.currentTarget);
-//   };
-
-//   const handleCloseNavMenu = () => {
-//     setAnchorElNav(null);
-//   };
-
-//   const handleCloseUserMenu = () => {
-//     setAnchorElUser(null);
-//   };
-
-//   return (
-  
-//   <TenderForm/>
-//   )};
-// export default ResponsiveAppBar;
-// import Sidebar from "./components/supplier/Dashboard/Sidebar";
 import styled from 'styled-components'
-import MainContent from './components/supplier/Dashboard/MainContent';
-// import Sidebar from './components/supplier/Dashboard/Sider';
-import Dashboard from './components/supplier/Dashboard.jsx'
-import Sidebar from './components/supplier/Dashboard/Sider'
+import SideBar from './components/supplier/Dashboard/SideBar.jsx'
+import NavBar from './components/supplier/Dashboard/NavBar'
 
 const App=()=>{
   return (
@@ -59,7 +13,20 @@ const App=()=>{
       <Sidebar/>
       <Dashboard/>
     </Di>*/
-    <Sidebar/>
+    // <Sidebar/>
+    <Div>
+      <SideBar/>
+      <Section>
+      <NavBar />
+      <div className="grid">
+        <div className="row__one">
+        </div>
+        <div className="row__two">
+        </div>
+      </div>
+    </Section>
+    </Div>
+    
   )
 }
 const Div = styled.div`
@@ -74,4 +41,38 @@ border-radus:2rem ;
     flex-direction: column;
   }
 `;
+const Section = styled.section`
+  margin-left: 18vw;
+  padding: 2rem;
+  height: 100%;
+  .grid {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+    margin-top: 2rem;
+    .row__one {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      height: 50%;
+      gap: 1rem;
+    }
+    .row__two {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      height: 50%;
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    margin-left: 0;
+    .grid {
+      .row__one,
+      .row__two {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+`;
+
 export default App

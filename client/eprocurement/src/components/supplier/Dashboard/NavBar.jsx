@@ -1,71 +1,72 @@
-import React from 'react'
-import styled from 'styled-components';
-import { FiSearch } from 'react-icons/fi';
-const NavBar=()=>{
-return (
-<NavBarContainer>
-    <Text>
-       ETHender
-        <span> ETHIOPIA</span>
-    </Text>
-    <InputContainer>
-        <Icon>
-            <FiSearch/>
-        </Icon>
-        <Input type='text' placeholder='Search For Tenders' />
-    </InputContainer>
-</NavBarContainer>
-)
+import React from "react";
+import styled from "styled-components";
+import { BiSearch } from "react-icons/bi";
+export default function Navbar() {
+  return (
+    <Nav>
+      <div className="title">
+        
+        <h1>
+         <span>ETHender DASHBOARD</span>
+        </h1>
+      </div>
+      <div className="search">
+        <BiSearch />
+        <input type="text" placeholder="Search" />
+      </div>
+    </Nav>
+  );
 }
-
-const NavBarContainer=styled.div`
-display: flex;
-justify-content:space-between;
-align-items:center;
-height: 10%;
-@media screen and (min-width: 320px) and (max-width: 1080px) {
+const Nav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  .title {
+    h1 {
+      span {
+        margin-left: 0.5rem;
+        color: #ffc107;
+        font-family: "Permanent Marker", cursive;
+        letter-spacing: 0.2rem;
+      }
+    }
+  }
+  .search {
+    background-color: #212121;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 8rem 1rem 1rem;
+    border-radius: 1rem;
+    svg {
+      color: #ffc107;
+    }
+    input {
+      background-color: transparent;
+      border: none;
+      color: #ffc107;
+      font-family: "Permanent Marker", cursive;
+      letter-spacing: 0.3rem;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: #ffc107;
+        font-family: "Permanent Marker", cursive;
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
     flex-direction: column;
-    margin-bottom: 1rem;
+    .title {
+      h1 {
+        span {
+          display: block;
+
+          margin: 1rem 0;
+          /* letter-spacing: 0; */
+        }
+      }
+    }
   }
 `;
-const Text=styled.h1`
-span{
-    font-weight:500 ;
-    color: #484258;
-
-}
-@media screen and (min-width: 320px) and (max-width: 1080px) {
-    margin-top: 1rem;
-  }
-`;
-const InputContainer=styled.div`
-display: flex;
-height: 3rem;
-`;
-
-const Icon=styled.div`
-height: 3rem;
-width: 3rem;
-background-color:#dce4ff ;
-display: flex;
-justify-content:center;
-align-items:center;
-border-top-left-radius:0.5rem;
-border-bottom-left-radius:0.5rem;
-svg{
-    color: #555555;
-}
-`;
-const Input=styled.input`
-border: none;
-background-color:#dce4ff ;
-border-top-right-radius:0.5rem;
-border-bottom-right-radius:0.5rem;
-&:focus{
-    border: none;
-    outlined:none;
-}
-
-
-`;
-export default NavBar
