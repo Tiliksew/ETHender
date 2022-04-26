@@ -44,16 +44,27 @@
 // import Sidebar from "./components/supplier/Dashboard/Sidebar";
 import styled from 'styled-components'
 import MainContent from './components/supplier/Dashboard/MainContent';
-import Sidebar from './components/supplier/Dashboard/Sidebar';
+// import Sidebar from './components/supplier/Dashboard/Sider';
+import Dashboard from './components/supplier/Dashboard.jsx'
+import Sidebar from './components/supplier/Dashboard/Sider'
+
 const App=()=>{
   return (
-    <Container>
-        <Sidebar/>
-        <MainContent/>
-    </Container>
+    // <Container>
+    //     {/* <Sidebar/> */}
+    //     {/* <Sidebar/> */}
+    //     <MainContent/>
+    // </Container>
+    /*<Div>
+      <Sidebar/>
+      <Dashboard/>
+    </Di>*/
+    <Sidebar/>
   )
 }
-
+const Div = styled.div`
+  position: relative;
+`;
 const Container=styled.div`
 display: flex;
 height: 97vh;

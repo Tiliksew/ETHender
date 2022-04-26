@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import NavBar from './NavBar';
 import TabGroup from './Tab';
+import NavBar2 from './NavBar2';
 
 const MainContent=()=>{
 return (
     <Container>
-        <NavBar/>
-        <TabGroup/>
+        <NavBar2/>
+        {/* <TabGroup/> */}
         <SubContainer>
             <SectionOne>
                 <ColumnOne1></ColumnOne1>
