@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import SideBar from './components/supplier/Dashboard/SideBar.jsx'
 import NavBar from './components/supplier/Dashboard/NavBar'
-
+import Tenderlist from './components/supplier/Dashboard/TenderList.jsx'
+import Table from './components/supplier/Dashboard/Table'
 const App=()=>{
   return (
     // <Container>
@@ -20,6 +21,7 @@ const App=()=>{
       <NavBar />
       <div className="grid">
         <div className="row__one">
+          <Table/>
         </div>
         <div className="row__two">
         </div>
@@ -53,7 +55,7 @@ const Section = styled.section`
     margin-top: 2rem;
     .row__one {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      /* grid-template-columns: repeat(2, 1fr); */
       height: 50%;
       gap: 1rem;
     }
