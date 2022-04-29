@@ -2,6 +2,7 @@
   "name": "eprocurement",
   "version": "0.1.0",
   "private": true,
+  "proxy":"https://jsonplaceholder.typicode.com/",
   "dependencies": {
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.2",
