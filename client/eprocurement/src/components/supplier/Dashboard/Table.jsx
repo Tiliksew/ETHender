@@ -46,25 +46,31 @@ const rows = [
 ];
 
 export default function CustomizedTables() {
-
- React.useEffect(() => {
-axios.get('https://jsonplaceholder.typicode.com/posts')
-  .then((response) => console.log(response.data))
- 
-
-
- }, []);
+  const [data, setData]=React.useState(null)
+  React.useEffect(() => {
+    axios.get('http://localhost:5001/all')
+      .then((response) => {
+        const username=response.data.user[0].username;
+        setData(username)
+        // console.log(response.data)
+        console.log(response.data)
+      }
+      
+      ).catch((e)=>console.log(e))
+    
+    
+     }, []);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
+        <TableHead> 
           <TableRow>
             <StyledTableCell>Tender Id</StyledTableCell>
             <StyledTableCell align="right">Tender Title</StyledTableCell>
             <StyledTableCell align="right">Opening Date&nbsp;(g)</StyledTableCell>
             <StyledTableCell align="right">Closing Date&nbsp;(g)</StyledTableCell>
             <StyledTableCell align="right">Status&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">&nbsp;(g)</StyledTableCell>
+            <StyledTableCell align="right">{data}</StyledTableCell>
             <StyledTableCell align="right">&nbsp;(g)</StyledTableCell>
 
           </TableRow>
